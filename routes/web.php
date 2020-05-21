@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('index');
 });
+
+// Rotas para ususários:
+Route::get('/usuarios' , 'UsuarioControlador@getUsuarios');
+Route::get('/cadastro-usuario' , function(){
+    return view('cadastro-usuario');
+});
+Route::post('/cadastrar-usuario' , 'UsuarioControlador@novoUsuario')->name('cadastrar-usuario');
