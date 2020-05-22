@@ -17,7 +17,5 @@ Route::get('/', function () {
 
 // Rotas para ususários:
 Route::get('/usuarios' , 'UsuarioControlador@getUsuarios');
-Route::get('/cadastro-usuario' , function(){
-    return view('cadastro-usuario');
-});
+Route::get('/cadastro-usuario' , 'UsuarioControlador@cadastroUsuario')->name('cadastro-ususario');
 Route::post('/cadastrar-usuario' , 'UsuarioControlador@novoUsuario')->name('cadastrar-usuario');
