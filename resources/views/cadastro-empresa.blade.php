@@ -1,7 +1,7 @@
 @include('layout.app')
 <h1>Cadastro de empresa</h1>
-<div class="">
-    <div class="">
+<div class="mt-3">
+    <div class="container">
         <form action="{{route('cadastrar-empresa')}}" method="POST">
             @csrf
             <div class="">

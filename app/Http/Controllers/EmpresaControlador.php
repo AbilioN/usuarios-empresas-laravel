@@ -7,8 +7,8 @@ use App\Empresa;
 class EmpresaControlador extends Controller
 {
     public function empresas(){
-        $empresa = new Empresa();
-        $allEmpresas  = $empresa->get();
+        $allEmpresas  = Empresa::all();
+        
         return view('empresas' , compact('allEmpresas'));
     }
 
