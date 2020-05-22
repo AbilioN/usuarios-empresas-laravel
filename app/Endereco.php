@@ -10,18 +10,6 @@ class Endereco extends Model
         'rua' , 'numero' , 'cidade', 
     ];
 
-    public function novoEndereco(array $endereco){
-        $this->rua = $endereco['rua'];
-        $this->numero = $endereco['numero'];
-        $this->cidade = $endereco['cidade'];
-        $this->estado = $endereco['estado'];
-        if($this->save()){
-            
-        }
-
-
-
-    }
     public function verificarSeEnderecoExiste($rua, $numero,$cidade){
         $enderecoExiste = $this->where('rua', $rua)
                                 ->where('numero' , $numero)
