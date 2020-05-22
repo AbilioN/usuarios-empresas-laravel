@@ -10,13 +10,11 @@ use App\Empresa;
 class UsuarioControlador extends Controller
 {
     public function getUsuarios(Request $request){
-        $usuario = new Usuario();
-        $allUsuarios = $usuario->get();
+        $allUsuarios = Usuario::all();
         return view('usuarios' , compact('allUsuarios'));
     }
     public function cadastroUsuario(Request $request){
-        $empresa = new Empresa();
-        $empresas  = $empresa->get();
+        $empresas  = Empresa::all();
         return view('cadastro-usuario', compact('empresas'));
     }
     public function novoUsuario(Request $request){
@@ -60,6 +58,25 @@ class UsuarioControlador extends Controller
             flash('Erro: alguma informacao esta faltando');
             return redirect()->back();
 
+        }
+    }
+    public function editorUsuario(Request $request){
+        $id = $request->id;
+        $usuario = Usuario::find($id);
+        $empresas = Empresa::all();
+        return view('editor-usuario' , compact('usuario' , 'empresas'));
+    }
+    public function editarUsuario(Request $request){
+        $id = $request->id;
+        $usuario = Usuario::find($id);
+        dd($usuario);
+    }
+    public function deletarUsuario(Request $request){
+        $id = $request->id;
+        $usuario = Usuario::find($id);
+        if($usuario->delete()){
+            flash('Usuario deletado com sucesso');
+            return redirect()->back();
         }
     }
 }
